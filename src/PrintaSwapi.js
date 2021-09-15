@@ -9,12 +9,12 @@ export default function PrintaSwapi(props){
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        async function XfetchPokemons(){
+        async function XshoW(){
           setChars([]);
           setLoading(true);
           setChars2([""]);
         }
-        XfetchPokemons();          
+        XshoW();          
       },[sida]);
 
 
@@ -50,7 +50,7 @@ export default function PrintaSwapi(props){
         {chars2.map((p) => <p>{p}</p>)}
         </div>
     )            
-}     
+}    
 
    function ChooseToPrint(){            
       if(!sida) return PrintaMovies(props);
