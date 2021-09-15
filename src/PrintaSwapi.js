@@ -14,6 +14,7 @@ export default function PrintaSwapi(props){
         async function XfetchPokemons(){
           setChars([]);
           setLoading(true);
+          setChars2([""]);
         }
         XfetchPokemons();          
       },[sida]);
@@ -36,11 +37,61 @@ export default function PrintaSwapi(props){
            const test = [];            
            const prom = [];           
 
-           chars.map(e => {test.push(Promise.resolve(fetch(e).then(value => value.json())))})
-          
-           if(1 === 1) {
-               test.push(Promise.resolve(fetch(chars[0]).then(value => value.json())))              
-           }                  
+    /* Promise.all([
+            fetch(chars[0]).then(value => value.json()),
+            fetch(chars[1]).then(value => value.json()),
+            fetch(chars[2]).then(value => value.json())
+        ]).then( (values) => {
+             prom.push(values[0].name);
+             prom.push(values[1].name);
+             prom.push(values[2].name);
+             prom.sort();    
+             setLoading(false);             
+             setChars2(prom);             
+             });
+             
+             --->>>   Promise.all([...prom3])
+             --->>>   Promise.all([
+            fetch(chars[0]).then(value => value.json()),
+            fetch(chars[1]).then(value => value.json()),
+            fetch(chars[2]).then(value => value.json())
+            ])
+
+            --->>>    const prom4 = [fetch(chars[0]).then(value => value.json()),fetch(chars[1]).then(value => value.json())]
+             
+             */
+
+           // const promise1 = Promise.resolve(fetch(chars[0]).then(value => value.json()));
+            //const promise2 = Promise.resolve(fetch(chars[1]).then(value => value.json()));
+
+            //const promise3 = Promise.resolve(fetch(chars[2]).then(value => value.json()));           
+
+            /* 
+             // console.log(testQ[0]);
+
+            const testT = [promise1, promise2, promise3];     
+            ELLER om man pushar in manuellt : test.push(promise1) osv..       
+
+                Promise.all([
+                  ...testT    
+                ]).then( (values) => {
+                    
+                    console.log(values.length)
+                   for(let i = 0; i < values.length; i++) {
+                       prom.push(values[i].name);
+                   }
+            */
+
+                   
+           chars.map(e => {test.push(Promise.resolve(fetch(e).then(value => value.json())))})  
+           
+          test.push(Promise.resolve(fetch(chars[0]).then(value => value.json())))              
+                 
+      
+         // chars.forEach(function callbackfn(element, index, chars) {test.push(Promise.resolve(fetch(element).then(value => value.json()))) })
+
+         
+
 
                 Promise.all([
                   ...test
