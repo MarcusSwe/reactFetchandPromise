@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-
 export default function PrintaSwapi(props){
 
-    
     const [sida, setSida] = useState(false)
     const [chars, setChars] = useState([])
     const [chars2, setChars2] = useState(["hästen", "osten"])
@@ -20,8 +18,7 @@ export default function PrintaSwapi(props){
       },[sida]);
 
 
-    function PrintaMovies(props) {        
-
+    function PrintaMovies(props) { 
         return (
             <div>
                {props.starwars.map((p, index) => <div>
@@ -31,8 +28,7 @@ export default function PrintaSwapi(props){
         )
     }
 
-    function PrintaInfo(props) {      
-
+    function PrintaInfo(props) {  
          const test = [];       
          const prom = [];       
                    
@@ -61,13 +57,11 @@ export default function PrintaSwapi(props){
       else return PrintaInfo(props);
     }
 
-
    function chooseToPrint2(){
      if(loading && sida){
         return <h3> ---- loading ---- </h3>
      } else return <div></div>            
   }
-
 
 return (
     <div>
